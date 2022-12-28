@@ -1,18 +1,13 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Login from '../Pages/Login'
-import Signup from '../Pages/Signup'
+import SignupLogin from '../Pages/SignupLogin'
 
 function Router() {
 
   const routerList = [
     {
-        path : "/login",
-        component : <Login />
-    },
-    {
-        path : "/signup",
-        component : <Signup />
+        path : "/getstarted",
+        component : <SignupLogin />
     },
 ]
 
