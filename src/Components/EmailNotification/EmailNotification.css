@@ -1,0 +1,39 @@
+.emailNotification {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    padding: 12px;
+}
+
+.emailNotification >label {
+    width: 100%;
+    display: flex;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    user-select: none;
+    margin: 4px 0px;
+    cursor: pointer;
+    position: relative;
+}
+
+.emailNotification >label > span {
+    margin-left: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.emailNotification >label > span:hover {
+    color: var(--light-blue);
+}
+
+.emailNotification >label > span::before {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgb(206, 208, 212);
+    border-radius: 2px;
+    transform: translateY(-50%);
+}

@@ -1,0 +1,43 @@
+.loginOtherOption {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.loginOtherOption > span {
+    padding: 12px;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgb(83, 146, 249);
+    cursor: pointer;
+    /* vertical-align: middle; */
+}
+
+.loginOtherOption > span > svg {
+    padding-right: 4px; 
+    font-size: 16px;    
+    width: 1em;
+    height: 1em;
+    fill: var(--light-blue);
+}
+
+.submitBtn {
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    user-select: none;
+    background-color: var(--light-blue);
+    color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 1px;
+    transition: all 0.15s ease-in-out 0s;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submitBtn:hover{
+    opacity: 0.8;
+}

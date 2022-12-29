@@ -1,0 +1,17 @@
+.LoginWrapper {
+    padding: 16px 24px 24px;
+}
+
+.loginFormWrapper {
+    margin-top: 12px;
+}
+
+.loginFormWrapper>form {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: -12px;
+    width: calc(100% + 24px);
+}
+ 

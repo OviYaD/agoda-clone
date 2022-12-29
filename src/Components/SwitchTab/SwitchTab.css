@@ -1,0 +1,48 @@
+.inputField {
+    margin-bottom: 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -12px;
+    width: calc(100% + 24px);
+}
+
+.switchTab {
+    padding: 12px;
+    box-sizing: border-box;
+    flex-basis: 100%;
+    flex-grow: 0;
+    max-width: 100%;
+}
+
+.switchTab>ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.switchTab>ul>li {
+    flex: 1 1 0%;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    list-style-type: none;
+    padding: 12px 8px;
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.selectedTab {
+    border-bottom: 2px solid var(--light-blue);
+    margin-bottom: -2px;
+    color: var(--light-blue);
+}
+
+.unselectedTab {
+    border-bottom: 1px solid var(--light-grey);
+    margin-bottom: -1px;
+}
