@@ -8,12 +8,14 @@
     --white : #fff;
     --black-shade : rgb(42, 42, 46);
     --red-tag : rgb(225, 45, 45);
+    --pink : rgb(255, 86, 125);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* outline: 1px solid red !important; */
 }
 
 body {

@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     min-height: 60px;
-    color: var(--black-shade );
+    color: var(--black-shade);
 }
 
 .leftNavbarWrapper {
@@ -37,14 +37,14 @@
     list-style-type: none;
 }
 
-.listOfOtherLeftOption > li {
+.listOfOtherLeftOption>li {
     display: inline-block;
 }
 
 .option {
     padding-left: 24px;
     margin-right: 4px;
-    margin-left: 8px;   
+    margin-left: 8px;
     display: inline-block;
     line-height: 56px;
     position: relative;
@@ -60,6 +60,7 @@
     padding: 4px;
     color: var(--white);
     background-color: var(--red-tag);
+    border-radius: 2px;
 }
 
 .redTagMemu::before {
@@ -71,13 +72,14 @@
     border-left: 5px solid transparent;
 }
 
-.redTagMemu > span {
+.redTagMemu>span {
     font-size: 10px;
     font-weight: 400;
     line-height: 10px;
 }
 
 .menuLink {
+
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
@@ -94,4 +96,79 @@
 .menuWithIcon {
     margin-right: 4px;
     vertical-align: middle;
+}
+
+.rightNavbarWrapper {
+    flex: 1 1 0%;
+    min-width: unset;
+    justify-content: flex-end;
+    display: inline-flex;
+}
+
+.listYourPlaceBtn {
+    font-size: 13px;
+    background-color: var(--white);
+    align-self: center;
+    white-space: nowrap;
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    padding: 12px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.listYourPlaceBtn:hover {
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+.centerdiv, .currency {
+    padding: 16px;
+    -webkit-box-align: center;
+    align-items: center;
+    align-self: center;
+    display: flex;
+}
+
+.countryOptionImg {
+    scale: 0.5;
+}
+
+.loginSignupBtnWrapper {
+    margin: 0 8px;
+}
+
+.loginSignupBtnHolder {
+    margin-right: 8px;
+}
+
+.loginSignupBtnHolder > button {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.loginBtn {
+    padding: 12px;
+    margin-right: 8px;
+    border-radius: 4px;
+    background-color: var(--white);
+    color: var(--light-blue);
+    border: none;
+}
+
+.loginBtn:hover, .signupBtn:hover {
+    background-color: var(--light-blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.signupBtn {
+    padding: 12px;
+    margin-right: 8px;
+    border-radius: 4px;
+    background-color: var(--white);
+    color: var(--light-blue);
+    border: 1px solid var(--light-blue);
 }
