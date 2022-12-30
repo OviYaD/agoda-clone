@@ -1,14 +1,26 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Home from '../Pages/Home'
+import Profile from '../Pages/Profile'
 import SignupLogin from '../Pages/SignupLogin'
 
 function Router() {
 
   const routerList = [
+    // Public Route
+    {
+      path : "/",
+      component : <Home />
+    },
     {
         path : "/getstarted",
         component : <SignupLogin />
     },
+    // Protected Routes
+    {
+      path : "/profile",
+      component : <Profile />
+  },
 ]
 
   return (
