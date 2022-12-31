@@ -1,10 +1,19 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useReducer } from 'react'
 import Input from '../Input/Input'
+import {reducerFunction} from '../../Helper/Reducer'
 import EmailNotification from '../EmailNotification/EmailNotification'
 import SubmitButton from '../SubmitButton/SubmitButton'
 
 
 function SignupEmail({ emailSignup }) {
+
+    const INITIAL_STATE = {
+        loading : false,
+        data : {},
+        error : false
+    }
+
+    const [state,dispatch] = useReducer(reducerFunction,INITIAL_STATE)
 
     const passwordErrRef = useRef(null)
 
@@ -37,11 +46,26 @@ function SignupEmail({ emailSignup }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (emailSignup) console.log(signupEData)
-    }
+        dispatch({type : "FETCH_START"})
+        fetch("http://192.168.1.76:8080/userInfo",{
+            method : "POST",
+            body : JSON.stringify(signupEData),
+            headers: { 'Content-Type': 'application/json'}
+        })
+            .then((res)=>{
+                return res.json()
+            })
+            .then((data)=>{
+                dispatch({type : "FETCH_SUCCESS", payload : data})  
+            })
+            .catch(()=>{
+                dispatch({type : "FETCH_ERROR"})
+            })
+        }
 
     return (
         <form onSubmit={handleSubmit}>
+            <div className='FormError'>{state.error?"Something went Wrong":null}</div>
             <Input pattern="[A-Za-z]{4,32}" value={signupEData.firstName} title="First name" name="firstName" type="text" onchange={handleChange} />
             <Input pattern="[A-Za-z]{4,32}" value={signupEData.lastName} title="Last name" name="lastName" type="text" onchange={handleChange} />
             <Input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value={signupEData.email} title="Email" name="email" type="email" onchange={handleChange} />
@@ -55,7 +79,7 @@ function SignupEmail({ emailSignup }) {
                 <span className='errorMsg' ref={passwordErrRef}></span>
             </div>
             <EmailNotification />
-            <SubmitButton name="Sign up" otherOptions={false} />
+            <SubmitButton name={state.loading?"Loading...":"Sign up"}  otherOptions={false} />
         </form>
     )
 }
