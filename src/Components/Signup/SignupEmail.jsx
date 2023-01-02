@@ -1,11 +1,17 @@
 import React, { useRef, useState, useReducer } from 'react'
 import Input from '../Input/Input'
+import { useNavigate } from "react-router-dom";
 import {reducerFunction} from '../../Helper/Reducer'
 import EmailNotification from '../EmailNotification/EmailNotification'
 import SubmitButton from '../SubmitButton/SubmitButton'
 
 
 function SignupEmail({ emailSignup }) {
+
+    const navigate = useNavigate();
+
+    const btnRef = useRef()
+
 
     const INITIAL_STATE = {
         loading : false,
@@ -33,14 +39,16 @@ function SignupEmail({ emailSignup }) {
         }
     }
 
-    const checkPassword = (e) => {
+    const checkPassword = () => {
         if(passwordWrok.password === passwordWrok.confirmPassword){
             setSignupEData({...signupEData,password : passwordWrok.confirmPassword })
             passwordErrRef.current.innerText = ""
+            btnRef.current.removeAttribute("disabled")
         }
         else {
             passwordErrRef.current.innerText = "Check Password and Confirm Password"
             console.log(passwordErrRef.current.value)
+            btnRef.current.setAttribute("disabled", "disabled");
         }
     }
 
@@ -56,16 +64,20 @@ function SignupEmail({ emailSignup }) {
                 return res.json()
             })
             .then((data)=>{
-                dispatch({type : "FETCH_SUCCESS", payload : data})  
+                dispatch({type : "FETCH_SUCCESS", payload : data})
+                if(state.data.status){
+                    navigate('/getStarted', { replace: true })
+                }  
             })
             .catch(()=>{
                 dispatch({type : "FETCH_ERROR"})
             })
+
         }
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className='FormError'>{state.error?"Something went Wrong":null}</div>
+            <div className='FormError'>{!state.data.status?state.data.msg:null}</div>
             <Input pattern="[A-Za-z]{4,32}" value={signupEData.firstName} title="First name" name="firstName" type="text" onchange={handleChange} />
             <Input pattern="[A-Za-z]{4,32}" value={signupEData.lastName} title="Last name" name="lastName" type="text" onchange={handleChange} />
             <Input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value={signupEData.email} title="Email" name="email" type="email" onchange={handleChange} />
@@ -79,7 +91,7 @@ function SignupEmail({ emailSignup }) {
                 <span className='errorMsg' ref={passwordErrRef}></span>
             </div>
             <EmailNotification />
-            <SubmitButton name={state.loading?"Loading...":"Sign up"}  otherOptions={false} />
+            <SubmitButton name={state.loading?"Loading...":"Sign up"} ref={btnRef}  otherOptions={false} />
         </form>
     )
 }

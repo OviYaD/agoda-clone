@@ -1,9 +1,13 @@
 import React, {useReducer, useState} from 'react'
 import Input from '../Input/Input'
+import { useNavigate } from "react-router-dom";
 import SubmitButton from '../SubmitButton/SubmitButton'
 import {reducerFunction} from '../../Helper/Reducer'
 
 function LoginMobile({setLoginPage,emailLogin}) {
+
+    const navigate = useNavigate();
+
 
     const INITIAL_STATE = {
         loading : false,
@@ -34,7 +38,11 @@ function LoginMobile({setLoginPage,emailLogin}) {
                 return res.json()
             })
             .then((data)=>{
-                dispatch({type : "FETCH_SUCCESS", payload : data})  
+                dispatch({type : "FETCH_SUCCESS", payload : data}) 
+                if(state.data.status){
+                    localStorage.setItem('token',data.token)
+                    navigate('/profile', { replace: true })
+                }
             })
             .catch(()=>{
                 dispatch({type : "FETCH_ERROR"})

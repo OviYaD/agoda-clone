@@ -38,14 +38,16 @@ function LoginMail({setLoginPage,emailLogin}) {
             })
             .then((data)=>{
                 dispatch({type : "FETCH_SUCCESS", payload : data})  
-                localStorage.setItem('token',data.token)
-                console.log(data)
-                navigate('/profile')
+                if(state.data.status){
+                    localStorage.setItem('token',data.token)
+                    navigate('/profile', { replace: true })
+                }
             })
             .catch(()=>{
                 dispatch({type : "FETCH_ERROR"})
             })
         }
+
 
         
     return (

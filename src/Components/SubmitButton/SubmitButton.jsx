@@ -1,11 +1,11 @@
 import React from 'react'
 import './SubmitButton.css'
 
-function SubmitButton({setLoginPage,name,otherOptions}) {
+function SubmitButton({setLoginPage,name,otherOptions,ref}) {
     return (
         <>
             <div className='inputFieldWrapper'>
-                <button className='submitBtn' type='submit'>{name}</button>
+                <button ref={ref} className='submitBtn' type='submit'>{name}</button>
             </div>
             {
                 (otherOptions)?(
