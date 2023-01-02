@@ -1,17 +1,11 @@
 import React, { useRef, useState, useReducer } from 'react'
 import Input from '../Input/Input'
-import { useNavigate } from "react-router-dom";
 import {reducerFunction} from '../../Helper/Reducer'
 import EmailNotification from '../EmailNotification/EmailNotification'
 import SubmitButton from '../SubmitButton/SubmitButton'
 
 
 function SignupEmail({ emailSignup }) {
-
-    const navigate = useNavigate();
-
-    const btnRef = useRef()
-
 
     const INITIAL_STATE = {
         loading : false,
@@ -25,7 +19,7 @@ function SignupEmail({ emailSignup }) {
 
     const [signupEData, setSignupEData] = useState({ firstName: "", lastName: "", email: "", password: "" })
 
-    const [passwordWrok, setPasswordWrok] = useState({password : "",confirmPassword:""})
+    const [passwordWrok, setPasswordWrok] = useState({password : "",confirmPassword:"",status : false})
 
     const handlePassword = (e) =>{
         let { name, value } = e.target
@@ -43,12 +37,11 @@ function SignupEmail({ emailSignup }) {
         if(passwordWrok.password === passwordWrok.confirmPassword){
             setSignupEData({...signupEData,password : passwordWrok.confirmPassword })
             passwordErrRef.current.innerText = ""
-            btnRef.current.removeAttribute("disabled")
+            setSignupEData({...signupEData,status : false})
         }
         else {
             passwordErrRef.current.innerText = "Check Password and Confirm Password"
-            console.log(passwordErrRef.current.value)
-            btnRef.current.setAttribute("disabled", "disabled");
+            setSignupEData({...signupEData,status : true})
         }
     }
 
@@ -65,8 +58,9 @@ function SignupEmail({ emailSignup }) {
             })
             .then((data)=>{
                 dispatch({type : "FETCH_SUCCESS", payload : data})
-                if(state.data.status){
-                    navigate('/getStarted', { replace: true })
+                if(data.status){
+                    window.location.reload(false);
+                    // navigate('/getStarted', { replace: true })
                 }  
             })
             .catch(()=>{
@@ -91,7 +85,7 @@ function SignupEmail({ emailSignup }) {
                 <span className='errorMsg' ref={passwordErrRef}></span>
             </div>
             <EmailNotification />
-            <SubmitButton name={state.loading?"Loading...":"Sign up"} ref={btnRef}  otherOptions={false} />
+            <SubmitButton name={state.loading?"Loading...":"Sign up"} disabled={passwordWrok.status}  otherOptions={false} />
         </form>
     )
 }

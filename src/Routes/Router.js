@@ -7,11 +7,19 @@ import SignupLogin from '../Pages/SignupLogin'
 
 function Router() {
 
+  const checkUser = () => {
+    if(!localStorage.getItem("token")){
+      return false
+    }
+    return true
+
+  }
+
   return (
     <>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/getStarted' element={<SignupLogin />} />
+        <Route path='/getStarted' element={checkUser()?<Profile />:<SignupLogin />} />
         <Route 
           path='/profile' 
           element={

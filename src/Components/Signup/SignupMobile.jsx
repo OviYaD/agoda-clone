@@ -1,12 +1,11 @@
 import React, {useState, useReducer} from 'react'
 import Input from '../Input/Input'
-import { useNavigate } from "react-router-dom";
 import {reducerFunction} from '../../Helper/Reducer'
 import SubmitButton from '../SubmitButton/SubmitButton'
 
 function SignupMobile({setLoginPage,emailSignup}) {
 
-    const navigate = useNavigate();
+
 
 
     const INITIAL_STATE = {
@@ -39,8 +38,9 @@ function SignupMobile({setLoginPage,emailSignup}) {
             })
             .then((data)=>{
                 dispatch({type : "FETCH_SUCCESS", payload : data})  
-                if(state.data.status){
-                    navigate('/getStarted', { replace: true })
+                if(data.status){
+                    window.location.reload(false);
+                    // navigate('/getStarted', { replace: true })
                 }  
             })
             .catch(()=>{

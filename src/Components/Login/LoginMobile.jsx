@@ -39,7 +39,7 @@ function LoginMobile({setLoginPage,emailLogin}) {
             })
             .then((data)=>{
                 dispatch({type : "FETCH_SUCCESS", payload : data}) 
-                if(state.data.status){
+                if(data.status){
                     localStorage.setItem('token',data.token)
                     navigate('/profile', { replace: true })
                 }

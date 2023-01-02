@@ -4,7 +4,7 @@ import {Navigate} from 'react-router-dom'
 function Protected({ children}) {
 
   const checkUser = () => {
-    if(!localStorage.getItem("token") || localStorage.getItem("token")==="null"){
+    if(!localStorage.getItem("token")){
       return false
     }
     return true

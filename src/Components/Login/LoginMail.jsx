@@ -31,14 +31,15 @@ function LoginMail({setLoginPage,emailLogin}) {
         fetch("http://192.168.1.76:8080/login/email",{
             method : "POST",
             body : JSON.stringify(loginEData),
-            headers: { 'Content-Type': 'application/json'}
+            headers: { 
+                'Content-Type': 'application/json'},
         })
             .then((res)=>{
                 return res.json()
             })
             .then((data)=>{
                 dispatch({type : "FETCH_SUCCESS", payload : data})  
-                if(state.data.status){
+                if(data.status){
                     localStorage.setItem('token',data.token)
                     navigate('/profile', { replace: true })
                 }
