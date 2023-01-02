@@ -1,0 +1,42 @@
+.copyrightSectionWrapper {
+    width: 100%;
+}
+
+.copyrightSectionWrapper > div {
+    padding-top: 48px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(42, 42, 46);
+    color: rgb(215, 215, 219);
+}
+
+.copyrightTag {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 300;
+    margin: 8px;
+}
+
+.companyCopyright {
+    margin: 35px auto 50px;
+}
+
+.companyCopyright > div {
+    margin: auto;
+    width: 1132px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.copyrightCompanyLogo {
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url(https://cdn6.agoda.net/images/sprite/bg-sprite-partner_v3.png);
+    width: 144px;
+    height: 48px;
+}
+
+.copyrightSectionWrapper > div >small {
+    text-align: center;
+    font-size: 70%;
+}

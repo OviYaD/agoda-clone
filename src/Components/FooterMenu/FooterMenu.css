@@ -1,0 +1,40 @@
+.footerMenuWrapper {
+    width: 100%;
+    background-color: rgb(233, 235, 238);
+    color: rgb(115, 115, 115);
+}
+
+.footerMenuListWrapper {
+    margin: auto;
+    padding: 48px 16px;
+    max-width: 1132px;
+    display: flex;
+}
+
+.footerMenu {
+    width: 20%;
+    flex-direction: column;
+    display: flex;
+    color: rgb(115, 115, 115);
+}
+
+.footerMenu > h5 {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+    margin: 12px 0px;
+}
+
+.footerMenu > ul {
+    color: #5b5b5b;
+    list-style: none;
+}
+
+.footerMenuLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footerMenuLink:hover {
+    text-decoration: underline;
+}

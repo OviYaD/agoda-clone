@@ -1,0 +1,104 @@
+[
+    {
+        "heading" : "Help",
+        "menuList" : [
+            {
+                "menuTitle" : "Help center",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "FAQs",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Privacy policy",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Cookie policy",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Terms of use",
+                "link" : "/"
+            }
+        ]
+    },
+    {
+        "heading" : "Company",
+        "menuList" : [
+            {
+                "menuTitle" : "About us",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Careers",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Press",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Blog",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "PointsMAX",
+                "link" : "/"
+            }
+        ]
+    },
+    {
+        "heading" : "Destinations",
+        "menuList" : [
+            {
+                "menuTitle" : "Countries/Territories",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Cities",
+                "link" : "/"
+            }
+        ]
+    },
+    {
+        "heading" : "Partner with us",
+        "menuList" : [
+            {
+                "menuTitle" : "YCS partner portal",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Partner Hub",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Advertise on Agoda",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Affiliates",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Connectivity partners",
+                "link" : "/"
+            }
+        ]
+    },
+    {
+        "heading" : "Get the app",
+        "menuList" : [
+            {
+                "menuTitle" : "iOS app",
+                "link" : "/"
+            },
+            {
+                "menuTitle" : "Android app",
+                "link" : "/"
+            }
+        ]
+    }
+
+]

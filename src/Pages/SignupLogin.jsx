@@ -2,6 +2,8 @@ import React, { lazy, Suspense, useState } from 'react'
 import Loader from '../Components/Loader/Loader'
 import Navbar from '../Components/Navbar/Navbar'
 import '../Asset/Styles/SignupLogin.css'
+import FooterMenu from '../Components/FooterMenu/FooterMenu'
+import Footer from '../Components/Footer/Footer'
 
 
 function SignupLogin() {
@@ -26,6 +28,8 @@ function SignupLogin() {
             </div>
           </main>
         </section>
+        <FooterMenu />
+        <Footer />
     </div>
   )
 }
