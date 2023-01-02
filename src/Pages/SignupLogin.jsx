@@ -16,7 +16,7 @@ function SignupLogin() {
 
   return (
     <div>
-        <Navbar setLoginPage={setLoginPage} />
+        <Navbar setLoginPage={setLoginPage} showProfile={false}/>
         <section className='SignupLoginWrapper'>
           <main>
             <div>

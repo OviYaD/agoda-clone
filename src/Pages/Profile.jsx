@@ -1,13 +1,13 @@
 import React from 'react'
+import Navbar from '../Components/Navbar/Navbar'
 
 function Profile() {
-
-  console.log("Profile Page")
-
+  
   return (
-    <div>
+    <main>
+        <Navbar showProfile={true}/>
         <h1>Profile Page</h1>
-    </div>
+    </main>
   )
 }
 
