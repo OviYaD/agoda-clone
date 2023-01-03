@@ -1,12 +1,15 @@
-import React from 'react'
-import DropDown from '../DropDown/DropDown'
+import React, { useRef } from 'react'
+import DropDownWrapper from '../DropDown/DropDownWrapper'
+import BronzeMedals from '../BronzeMedals/BronzeMedals'
 import './SignedInNavbar.css'
 
 function SignedInNavbar() {
 
+    const modelRef = useRef()
+
     return (
         <div className='accountDetails'>
-            <div>
+            <div onClick={()=>modelRef.current.setIsOpen((prev)=>!prev)}>
 
                 <div className='accountDp'>
                     <h1>K</h1>
@@ -14,16 +17,7 @@ function SignedInNavbar() {
 
                 <span className='accountName'>
                     <p>Kishore Kumar M.</p>
-                    <div className='vipTag'>
-                        <div className='vipHead'>
-                            <img alt="star_with_vip" src="https://cdn6.agoda.net/images/LOY-5758/default/VIP.svg" />
-                        </div>
-                        <div className='accountLevel'>
-                            <span>Bronze</span>
-                            <div className='slash1'></div>
-                            <div className='slash2'></div>
-                        </div>
-                    </div>
+                    <BronzeMedals />
                 </span>
 
                 <span className='accountAmmount'>
@@ -41,7 +35,7 @@ function SignedInNavbar() {
 
                 
             </div>
-            <DropDown />    
+            <DropDownWrapper ref={modelRef}/>    
         </div>
 
     )

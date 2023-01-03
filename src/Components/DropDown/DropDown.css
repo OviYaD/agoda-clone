@@ -1,0 +1,144 @@
+.dropDownWrapper {
+    position: absolute;
+    z-index: 1400;
+    will-change: transform;
+    top: 0px;
+    left: 0px;
+    transform: translate3d(1425px, 50px, 0px);
+}
+
+.dropDownWrapper > div {
+    position: relative;
+    bottom: -7px;
+}
+
+.userMenuDropDown {
+    padding: 0px;
+    width: 15.5em;
+    position: relative;
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 1px;
+    border-radius: 0px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(221, 223, 226);
+}
+
+.dropDownWrapper > div > span {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    margin: 0px 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255);
+    border-width: 0px 7px 7px;
+    top: -6px;
+    filter: drop-shadow(rgb(221, 223, 226) 0px -1px);
+    right: 3px !important;
+    left: unset !important;
+}
+
+.userMenuHead {
+    display: block;
+    font-size: 12px;
+    background-color: rgb(248, 247, 249);
+    padding: 12px 24px;
+    text-transform: uppercase;
+
+}
+
+.otherLinkMenu {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 12px 0px;
+}
+
+.otherLinkMenu > ul {
+    list-style: none;
+}
+
+.userMenuDropDownLinks {
+    color: rgb(42, 42, 46);
+    cursor: pointer;
+    display: flex;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 0px !important;
+    text-decoration: none;
+}
+
+.userMenuDropDownLinks:hover {
+    color: #5392f9;
+}
+
+.agodaCash {
+    flex: 1 1 0%;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: #5392f9;
+}
+
+.agodaCash > p {
+    flex: 1 1 0%;
+    color: rgb(42, 42, 46);
+}
+
+.agodaCash > div {
+    background: rgb(112, 77, 255); 
+    color: rgb(255, 255, 255);
+    white-space: break-spaces;
+    padding: 4px 8px;
+    border-radius: 2px;
+    word-break: break-all;
+    display: block;
+    width: auto;
+    min-width: 40px;
+
+}
+
+.agodaVIP {
+    flex: 1 1 0%;
+    -webkit-box-align: center;
+    align-items: center;
+    
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.pointsMAX {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.pointsMAX > p {
+    flex: 1 1 0%;
+    color: rgb(42, 42, 46);
+}
+
+.signoutBox {
+    margin: 24px 16px;
+}
+
+.signoutBox > button {
+    width: 100%;
+    user-select: none;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid rgb(83, 146, 249);
+    color: rgb(83, 146, 249);
+    background-color: rgb(255, 255, 255);
+    transition: all 0.15s ease-in-out 0s;
+    cursor: pointer;
+}
+
+.signoutBox > button:hover {
+    background-color: rgb(83, 146, 249);
+    color: rgb(255, 255, 255);
+}
