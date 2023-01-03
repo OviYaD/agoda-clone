@@ -3,16 +3,31 @@ import { createPortal } from 'react-dom'
 import DropDown from './DropDown'
 
 
-function DropDownWrapper(prop,ref) {
+function DropDownWrapper({size},ref) {
 
+
+  const rootElement = document.getElementById('root')
+
+  
   useImperativeHandle(ref,()=>{
-    return ({setIsOpen})
-  },[])
+    const closeModal = () => {
+      setIsOpen(false)
+      rootElement.removeEventListener('click',closeModal)
+    }
+  
+    const openModal = () => {
+      setIsOpen(true)
+      rootElement.addEventListener('click',closeModal)
+  
+    } 
+    return ({openModal,closeModal})
+  },[rootElement])
+
 
   const [isOpen , setIsOpen] = useState(false)
-
+  
   return createPortal(
-    isOpen?<DropDown />:null
+    isOpen?<DropDown size={size} />:null
 
     , document.getElementById("dropDown"))
 }

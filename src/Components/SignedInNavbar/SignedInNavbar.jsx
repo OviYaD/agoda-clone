@@ -1,16 +1,26 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import DropDownWrapper from '../DropDown/DropDownWrapper'
 import BronzeMedals from '../BronzeMedals/BronzeMedals'
 import './SignedInNavbar.css'
 
 function SignedInNavbar() {
 
+    const [size, setSize] = useState({})
+
+    
+
     const modelRef = useRef()
+
+    const menuRef = useRef()
+
+    useEffect(()=>{
+        setSize(menuRef.current.getBoundingClientRect())
+    },[])
 
     return (
         <div className='accountDetails'>
-            <div onClick={()=>modelRef.current.setIsOpen((prev)=>!prev)}>
-
+            <div ref={menuRef} onClick={()=>modelRef.current.openModal()}>
+                
                 <div className='accountDp'>
                     <h1>K</h1>
                 </div>
@@ -35,7 +45,7 @@ function SignedInNavbar() {
 
                 
             </div>
-            <DropDownWrapper ref={modelRef}/>    
+            <DropDownWrapper ref={modelRef} size={size}/>    
         </div>
 
     )

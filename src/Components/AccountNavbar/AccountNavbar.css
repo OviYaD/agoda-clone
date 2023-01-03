@@ -1,0 +1,110 @@
+.accountNavbarWrapper {
+    letter-spacing: 1px;
+    min-width: 255px;
+    margin-top: 21px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+    display: block;
+}
+
+.accountNavbarWrapper > ul {
+    list-style: none;
+}
+
+.accountNavbarList {
+    display: block;
+    list-style: none;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.accountNavbarListLink-Inactive:hover, .accountNavbarListLink-sub:hover {
+    background-color: #5392f9;
+    color: white;
+}
+
+.accountNavbarListLink-Inactive {
+    display: block;
+    min-height: 50px;
+    text-decoration: none;
+    color: #5392f9;
+}
+
+
+.accountNavbarListIcons-Inactive {
+    padding-left: 10px;
+    width:42px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 3px;
+    font-size: 24px;
+}
+
+.accountNavbarListLink-Inactive > span, .accountNavbarListLink-active >span, .accountNavbarListLink-sub >span {
+    display: inline-block;
+    margin: 15px 0;
+    vertical-align: middle;
+    word-wrap: break-word;
+    padding-left: 8px;
+}
+
+
+.accountNavbarListLink-active {
+    border-right: 3px solid #0283df;
+    background-color: #f8f7f9;
+    border-right-color: #5392f9;
+}
+
+
+.accountNavbarListLink-active {
+    color: #4b4f56;
+    display: block;
+    min-height: 50px;
+    text-decoration: none;
+}
+
+.accountNavbarListIcons-active {
+    width: 42px;
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 3px;
+    font-size: 24px;
+}  
+
+.accountNavbarListIcons-sub {
+    width: 42px;
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 3px;
+    font-size: 15px;
+}
+
+.accountNavbarListLink-sub {
+    padding-left: 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #5392f9;
+}

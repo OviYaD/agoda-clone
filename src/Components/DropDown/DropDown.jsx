@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import BronzeMedals from '../BronzeMedals/BronzeMedals'
 import './DropDown.css'
 
-function DropDown() {
+function DropDown({size}) {
 
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ function DropDown() {
     }
 
   return (
-    <div className='dropDownWrapper'>
+    <div className='dropDownWrapper' style={{transform : `translate3d(${size.x}px, ${size.y*10}px, 0px)`}}>
         <div>
             <div className='userMenuDropDown'>
                 <div className='userMenuHead'>My Account</div>
