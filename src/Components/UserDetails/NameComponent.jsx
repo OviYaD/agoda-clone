@@ -5,15 +5,16 @@ import './UserDetails.css'
 function NameComponent() {
 
     const [editDetails, setEditDetails] = useState(true)
+ 
 
     return (
         <>
 
             {
                 (editDetails) ? (
-                    <section className='nameComponent'>
+                    <section className='nameComponent' style={{backgroundImage : true?"linear-gradient(90deg,#a6e66c,#bdf488)": "linear-gradient(90deg,#ffcc7b,#ffd899)"}}>
                         <div className='displayNameComponent'>
-                            <div>K</div>
+                            <div style={{backgroundColor: true?"#85c150":"#ffa726"}}>K</div>
                         </div>
                         <div className='displayName'>
                             <div>
