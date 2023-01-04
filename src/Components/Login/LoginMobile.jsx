@@ -17,7 +17,7 @@ function LoginMobile({setLoginPage,emailLogin}) {
 
     const [state, dispatch] = useReducer(reducerFunction,INITIAL_STATE)
 
-    const [loginMData, setLoginMData] = useState({mobileNo : "", password : ""})
+    const [loginMData, setLoginMData] = useState({mobileNo : "", password : "", email : null })
 
     const handleChange = (e) => {
         if (!emailLogin) {
@@ -29,7 +29,7 @@ function LoginMobile({setLoginPage,emailLogin}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch({type : "FETCH_START"})
-        fetch("http://192.168.1.76:8080/login/mobile",{
+        fetch(`${process.env.REACT_APP_API_KEY}/login`,{
             method : "POST",
             body : JSON.stringify(loginMData),
             headers: { 'Content-Type': 'application/json'}

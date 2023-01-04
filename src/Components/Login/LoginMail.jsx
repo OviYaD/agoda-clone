@@ -16,7 +16,7 @@ function LoginMail({setLoginPage,emailLogin}) {
 
     const [state,dispatch] = useReducer(reducerFunction,INITIAL_STATE)
 
-    const [loginEData, setLoginEData] = useState({email : "", password : ""})
+    const [loginEData, setLoginEData] = useState({email : "", password : "", mobileNo : null})
 
     const handleChange = (e) => {
         if (emailLogin) {
@@ -28,7 +28,7 @@ function LoginMail({setLoginPage,emailLogin}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch({type : "FETCH_START"})
-        fetch("http://192.168.1.76:8080/login/email",{
+        fetch(`${process.env.REACT_APP_API_KEY}/login`,{
             method : "POST",
             body : JSON.stringify(loginEData),
             headers: { 

@@ -5,9 +5,6 @@ import SubmitButton from '../SubmitButton/SubmitButton'
 
 function SignupMobile({setLoginPage,emailSignup}) {
 
-
-
-
     const INITIAL_STATE = {
         loading : false,
         data : {},
@@ -28,7 +25,7 @@ function SignupMobile({setLoginPage,emailSignup}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch({type : "FETCH_START"})
-        fetch("http://192.168.1.76:8080/mobileUser",{
+        fetch(`${process.env.REACT_APP_API_KEY}/register`,{
             method : "POST",
             body : JSON.stringify(signupMData),
             headers: { 'Content-Type': 'application/json'}
@@ -39,7 +36,7 @@ function SignupMobile({setLoginPage,emailSignup}) {
             .then((data)=>{
                 dispatch({type : "FETCH_SUCCESS", payload : data})  
                 if(data.status){
-                    window.location.reload(false);
+                    emailSignup(false);
                     // navigate('/getStarted', { replace: true })
                 }  
             })

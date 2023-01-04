@@ -1,0 +1,162 @@
+.userDetailsWrapper {
+    padding-top: 32px;
+    padding-bottom: 8px;
+    display: block;
+}
+
+.userDetailsWrapper > h1 {
+    letter-spacing: .9px;
+    color: #333;
+    margin: 0;
+    padding: 0 0 20px;
+    font-size: 22px;
+    font-weight: 200;
+}
+
+.nameComponent {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    letter-spacing: .6px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.78;
+    margin-bottom: 10px;
+    color: #5a5b5b;
+    background-image: linear-gradient(90deg,#a6e66c,#bdf488);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+
+}
+
+.displayNameComponent {
+    height: 103px;
+    padding: 24px 20px;
+}
+
+.displayNameComponent > div {
+    width: 55px;
+    height: 55px;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 55px;
+    background-color: #85c150;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.displayName {
+    float: left;
+    /* padding-left: 21px; */
+    letter-spacing: .6px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.78;
+}
+
+.displayName > div > h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2.04;
+    letter-spacing: .6px;
+}
+
+.displayName > div > span {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: .6px;
+    color: #5a5b5b;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.78;
+}
+
+.editnameComponent {
+    margin-left: auto;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.nameComponentChange {
+    background-color: white;
+}
+
+.nameComponentChange > div{
+    padding: 24px 20px;
+}
+
+.formLabal {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2.04;
+    color: #5a5b5b;
+}
+
+.form-control {
+    width: 443px;
+    height: 45px;
+    /* font-size: 14px; */
+    margin: 10px 0;
+    color: #5a5b5b;
+    background-color: #fff;
+    border: 1px solid #ced0d4;
+    display: block;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.form-control:focus {
+    border-color: var(--light-blue);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px var(--light-blue);
+    outline: 0 none;
+}
+
+.nameComponentChangeBtnWrapper {
+    padding: 10px 0;
+}
+
+.cancelBtn {
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+    min-width: 120px;
+    border: none;
+    white-space: nowrap;
+    outline: 0;
+    line-height: 1.4;
+    padding: 10px 40px;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #5392f9;
+    cursor: pointer;
+}
+
+.cancelBtn:hover {
+    background-color: #5392f9;
+    color: white;
+}
+
+.saveBtn {
+    font-weight: bold;
+
+    margin-right: 5px;
+    display: inline-block;
+    min-width: 120px;
+    border: none;
+    white-space: nowrap;
+    outline: 0;
+    line-height: 1.4;
+    padding: 10px 40px;
+    border-radius: 3px;
+    background-color: #5392f9;
+    color: white;
+    cursor: pointer;
+}

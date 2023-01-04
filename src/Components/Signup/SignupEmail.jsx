@@ -17,9 +17,9 @@ function SignupEmail({ emailSignup }) {
 
     const passwordErrRef = useRef(null)
 
-    const [signupEData, setSignupEData] = useState({ firstName: "", lastName: "", email: "", password: "" })
+    const [signupEData, setSignupEData] = useState({ firstName: "", lastName: "", email: "", password: "", mobileNo : null })
 
-    const [passwordWrok, setPasswordWrok] = useState({password : "",confirmPassword:"",status : false})
+    const [passwordWrok, setPasswordWrok] = useState({password : "", confirmPassword:""})
 
     const handlePassword = (e) =>{
         let { name, value } = e.target
@@ -37,18 +37,16 @@ function SignupEmail({ emailSignup }) {
         if(passwordWrok.password === passwordWrok.confirmPassword){
             setSignupEData({...signupEData,password : passwordWrok.confirmPassword })
             passwordErrRef.current.innerText = ""
-            setSignupEData({...signupEData,status : false})
         }
         else {
             passwordErrRef.current.innerText = "Check Password and Confirm Password"
-            setSignupEData({...signupEData,status : true})
         }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch({type : "FETCH_START"})
-        fetch("http://192.168.1.76:8080/userInfo",{
+        fetch(`${process.env.REACT_APP_API_KEY}/register`,{
             method : "POST",
             body : JSON.stringify(signupEData),
             headers: { 'Content-Type': 'application/json'}
@@ -59,8 +57,7 @@ function SignupEmail({ emailSignup }) {
             .then((data)=>{
                 dispatch({type : "FETCH_SUCCESS", payload : data})
                 if(data.status){
-                    window.location.reload(false);
-                    // navigate('/getStarted', { replace: true })
+                    emailSignup(false);
                 }  
             })
             .catch(()=>{
@@ -85,7 +82,7 @@ function SignupEmail({ emailSignup }) {
                 <span className='errorMsg' ref={passwordErrRef}></span>
             </div>
             <EmailNotification />
-            <SubmitButton name={state.loading?"Loading...":"Sign up"} disabled={passwordWrok.status}  otherOptions={false} />
+            <SubmitButton name={state.loading?"Loading...":"Sign up"}  otherOptions={false} />
         </form>
     )
 }

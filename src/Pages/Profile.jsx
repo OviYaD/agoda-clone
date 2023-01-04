@@ -4,6 +4,7 @@ import '../Asset/Styles/Profile.css'
 import AccountNavbar from '../Components/AccountNavbar/AccountNavbar'
 import FooterMenu from '../Components/FooterMenu/FooterMenu'
 import Footer from '../Components/Footer/Footer'
+import UserDetails from '../Components/UserDetails/UserDetails'
 
 function Profile() {
   
@@ -15,7 +16,9 @@ function Profile() {
             <AccountNavbar />
             <div className='leftPanelUnderLine'></div>
           </section>
-          <section className='rightPanel'></section>
+          <section className='rightPanel'>
+            <UserDetails />
+          </section>
         </main>
         <FooterMenu />
         <Footer />

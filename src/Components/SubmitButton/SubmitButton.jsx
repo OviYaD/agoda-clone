@@ -1,11 +1,11 @@
 import React from 'react'
 import './SubmitButton.css'
 
-function SubmitButton({setLoginPage,name,otherOptions,disabled}) {
+function SubmitButton({setLoginPage,name,otherOptions}) {
     return (
         <>
             <div className='inputFieldWrapper'>
-                <button disabled={disabled} className='submitBtn' type='submit'>{name}</button>
+                <button className='submitBtn' type='submit'>{name}</button>
             </div>
             {
                 (otherOptions)?(
