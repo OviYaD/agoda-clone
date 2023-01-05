@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import EmailComponent from './EmailComponent'
 import NameComponent from './NameComponent'
 import Newsletter from './Newsletter'
 import Offers from './Offers'
 import PasswordComponent from './PasswordComponent'
+import Payment from './Payment'
 import PhoneNumber from './PhoneNumber'
 import Promotions from './Promotions'
 import Reminders from './Reminders'
@@ -11,6 +12,9 @@ import SaveCredit from './SaveCredit'
 import './UserDetails.css'
 
 function UserDetails() {
+
+
+  const [paymentInfo, setPaymentInfo] = useState(false)
 
   return (
     <section className='userDetailsWrapper'>
@@ -22,7 +26,8 @@ function UserDetails() {
           <section className='paymentMethods'>
             <h1>Payment methods</h1>
           </section>
-          <SaveCredit />
+          <Payment paymentInfo={paymentInfo} />
+          <SaveCredit paymentInfo={paymentInfo} setPaymentInfo={setPaymentInfo} />
           <section className='paymentMethods'>
             <h1>Email subscriptions</h1>
           </section>

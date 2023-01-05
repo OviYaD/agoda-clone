@@ -1,11 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './UserDetails.css'
 
 
-function SaveCredit() {
-
-    const [inputCheck, setInputChecked] = useState(true)
-
+function SaveCredit({paymentInfo, setPaymentInfo}) {
 
     return (
         <section className='section'>
@@ -16,10 +13,10 @@ function SaveCredit() {
                     <span className='toggleMessageFailed'>Failed</span>
                 </span>
                 <div className='toggleIT'>
-                    <span className='buttonToggleEvent'>{inputCheck?"YES":"NO"}</span>
+                    <span className='buttonToggleEvent'>{paymentInfo?"YES":"NO"}</span>
                     <div className='toggleBtnWrapper'>
                         <label className="switch" >
-                            <input type="checkbox" defaultChecked={inputCheck} onClick={()=>setInputChecked(!inputCheck)}/>
+                            <input type="checkbox" defaultChecked={paymentInfo} onClick={()=>setPaymentInfo(!paymentInfo)}/>
                             <span className="slider round"></span>
                         </label>
                     </div>

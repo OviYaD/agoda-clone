@@ -85,6 +85,7 @@
 }
 
 .nameComponentChange {
+    margin-bottom: 10px;
     background-color: white;
     box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
 
@@ -460,4 +461,35 @@
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+/* Payment */
+.paymentWrapper {
+    cursor: pointer;
+    height: auto;
+    padding: 18px 20px 24px;
+    color: #5a5b5b;
+    background-color: #fff;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.78;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    width: 269px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.plusIcon {
+    color: #0095f6;
+    font-size: 25px;
+}
+
+.paymentWrapper > p {
+    color: #0095f6;
+    margin-top: 15px;
 }

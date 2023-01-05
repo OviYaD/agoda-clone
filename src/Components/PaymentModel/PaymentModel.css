@@ -1,0 +1,31 @@
+.PaymentModel {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1400;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
+
+.PaymentModel > section {
+    width: 720px;
+    background-color: white;
+    color: black;
+}
+
+.paymentModelWrapper {
+    padding: 40px;
+}
+
+.paymentModelWrapper > h4 {
+    font-size: 24px;
+    color: #2a2a2e;
+    margin: 0 0 32px;
+}
