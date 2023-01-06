@@ -39,7 +39,6 @@ function LoginMail({ setLoginPage }) {
                 }
             })
                 .then((res) => {
-                    console.log(res.status)
                     return res.json()
                 })
                 .then((data) => {
