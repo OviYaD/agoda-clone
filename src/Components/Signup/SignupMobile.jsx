@@ -1,59 +1,73 @@
-import React, {useState, useReducer} from 'react'
+import React, { useReducer } from 'react'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 import Input from '../Input/Input'
-import {reducerFunction} from '../../Helper/Reducer'
+import { reducerFunction } from '../../Helper/Reducer'
 import SubmitButton from '../SubmitButton/SubmitButton'
 
-function SignupMobile({setLoginPage,emailSignup}) {
+function SignupMobile({ setLoginPage, emailSignup }) {
+
+    const formik = useFormik({
+        initialValues: {
+            mobileNo: "",
+            password: "",
+            email: null
+        },
+        validationSchema: Yup.object({
+            mobileNo: Yup.string()
+                .required("Required")
+                .matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+                    , 'Phone number is not valid')
+                .min(10, "Too short")
+                .max(10, "Too Long"),
+            password: Yup.string().required("Required").test(
+                "regex",
+                "Password must be min 8 characters, and have 1 Special Character, 1 Uppercase, 1 Number and 1 Lowercase",
+                val => {
+                    let regExp = new RegExp(
+                        "^(?=.*\\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    );
+                    return regExp.test(val);
+                }
+            )
+        }),
+        onSubmit: (value) => {
+            dispatch({ type: "FETCH_START" })
+            fetch(`${process.env.REACT_APP_API_KEY}/register`, {
+                method: "POST",
+                body: JSON.stringify(value),
+                headers: { 'Content-Type': 'application/json' }
+            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((data) => {
+                    dispatch({ type: "FETCH_SUCCESS", payload: data })
+                    if (data.status) {
+                        emailSignup(false);
+                    }
+                })
+                .catch(() => {
+                    dispatch({ type: "FETCH_ERROR" })
+                })
+
+        }
+    })
 
     const INITIAL_STATE = {
-        loading : false,
-        data : {},
-        error : false
+        loading: false,
+        data: {},
+        error: false
     }
 
-    const [state,dispatch] = useReducer(reducerFunction,INITIAL_STATE)
-
-    const [signupMData, setSignupMData] = useState({mobileNo : "", password : ""})
-
-    const handleChange = (e) => {
-        if(!emailSignup){
-            let {name, value} = e.target
-            setSignupMData({...signupMData, [name]: value});
-        }
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        dispatch({type : "FETCH_START"})
-        fetch(`${process.env.REACT_APP_API_KEY}/register`,{
-            method : "POST",
-            body : JSON.stringify(signupMData),
-            headers: { 'Content-Type': 'application/json'}
-        })
-            .then((res)=>{
-                return res.json()
-            })
-            .then((data)=>{
-                dispatch({type : "FETCH_SUCCESS", payload : data})  
-                if(data.status){
-                    emailSignup(false);
-                    // navigate('/getStarted', { replace: true })
-                }  
-            })
-            .catch(()=>{
-                dispatch({type : "FETCH_ERROR"})
-            })
-            
-        }
-        console.log(state.data)
-
+    const [state, dispatch] = useReducer(reducerFunction, INITIAL_STATE)
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className='FormError'>{!state.data.status?state.data.msg:null}</div>
-            <Input pattern="[0-9]{10}" value={signupMData.mobileNo} title="Mobile number" name="mobileNo" type="tel" onchange={handleChange} />
-            <Input pattern=".{8,}" value={signupMData.password} title="Password" name="password" type="password" onchange={handleChange} />
-            <SubmitButton name={state.loading?"Loading...":"Sign up"} otherOptions={false} setLoginPage={setLoginPage} />
+        <form onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e) }} noValidate >
+            <div className='FormError'>{!state.data.status ? state.data.msg : null}</div>
+            <Input errMsg={formik.errors.mobileNo ? formik.errors.mobileNo : null} value={formik.mobileNo} title="Mobile number" name="mobileNo" type="tel" onchange={formik.handleChange} />
+            <Input errMsg={formik.errors.password ? formik.errors.password : null} value={formik.password} title="Password" name="password" type="password" onchange={formik.handleChange} />
+            <SubmitButton name={state.loading ? "Loading..." : "Sign up"} otherOptions={false} setLoginPage={setLoginPage} />
         </form>
     )
 }
