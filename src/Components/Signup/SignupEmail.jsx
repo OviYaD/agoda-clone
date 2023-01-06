@@ -72,16 +72,10 @@ function SignupEmail({ emailSignup }) {
             <Input errMsg={formik.errors.firstName ? formik.errors.firstName : null} value={formik.firstName} title="First name" name="firstName" type="text" onchange={formik.handleChange} />
             <Input errMsg={formik.errors.lastName ? formik.errors.lastName : null} value={formik.lastName} title="Last name" name="lastName" type="text" onchange={formik.handleChange} />
             <Input errMsg={formik.errors.email ? formik.errors.email : null} value={formik.email} title="Email" name="email" type="email" onchange={formik.handleChange} />
-            <div className='inputFieldWrapper'>
-                <div>Password</div>
-                <input name="password" value={formik.password} placeholder="Password" type="password" onChange={formik.handleChange} />
-                <span className='errorMsg'>{formik.errors.password ? formik.errors.password : null}</span>
-            </div>
-            <div className='inputFieldWrapper'>
-                <div>Confirm Password</div>
-                <input name="confirmPassword" value={formik.confirmPassword} placeholder="Password" onChange={formik.handleChange} type="password" />
-                <span className='errorMsg'>{formik.errors.confirmPassword ? formik.errors.confirmPassword : null}</span>
-            </div>
+
+            <Input errMsg={formik.errors.password ? formik.errors.password : null} value={formik.password} title="Password" name="password" type="password" onchange={formik.handleChange} />
+            <Input errMsg={formik.errors.confirmPassword ? formik.errors.confirmPassword : null} value={formik.confirmPassword} title="Confirm Password" name="confirmPassword" type="password" onchange={formik.handleChange} />
+
             <EmailNotification />
             <SubmitButton name={state.loading ? "Loading..." : "Sign up"} otherOptions={false} />
         </form>
