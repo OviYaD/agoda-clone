@@ -1,16 +1,17 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BronzeMedals from '../BronzeMedals/BronzeMedals'
 import './DropDown.css'
 
 function DropDown({size}) {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 
     const handleEvent = () => {
         localStorage.removeItem("token");
-        navigate('/getStarted')
+        window.location.reload();
+        // navigate('/getStarted')
     }
 
   return (
