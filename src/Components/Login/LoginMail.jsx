@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react'
 import { useNavigate } from "react-router-dom";
 import Input from '../Input/Input'
+import axios from 'axios';
 import SubmitButton from '../SubmitButton/SubmitButton'
 import { reducerFunction } from '../../Helper/Reducer'
 import { useFormik } from 'formik'
@@ -31,26 +32,16 @@ function LoginMail({ setLoginPage }) {
         }),
         onSubmit: (values) => {
             dispatch({ type: "FETCH_START" })
-            fetch(`${process.env.REACT_APP_API_KEY}/login`, {
-                method: "POST",
-                body: JSON.stringify(values),
-                headers: {
-                    'Content-Type': 'application/json'
+            
+            axios.post(`${process.env.REACT_APP_API_KEY}/login`,values)
+            .then((res)=>{
+                dispatch({ type: "FETCH_SUCCESS", payload: res.data })
+                if(res.data.status) {
+                    localStorage.setItem('token', res.data.token)
+                    navigate('/profile', { replace: true })
                 }
             })
-                .then((res) => {
-                    return res.json()
-                })
-                .then((data) => {
-                    dispatch({ type: "FETCH_SUCCESS", payload: data })
-                    if (data.status) {
-                        localStorage.setItem('token', data.token)
-                        navigate('/profile', { replace: true })
-                    }
-                })
-                .catch(() => {
-                    dispatch({ type: "FETCH_ERROR" })
-                })
+            .catch(() => dispatch({ type: "FETCH_ERROR" }))
         }
     })
 
