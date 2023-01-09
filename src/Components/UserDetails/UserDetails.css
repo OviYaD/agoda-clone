@@ -91,7 +91,7 @@
 
 }
 
-.nameComponentChange > div{
+.nameComponentChange > form{
     padding: 24px 20px;
 }
 
@@ -320,13 +320,12 @@
 .toggleMessageSaved {
     margin: 0 10px;
     color: #87c057;
-    display: none;
+    
 }
 
 .toggleMessageFailed {
     margin: 0 10px;
     color: #c50000;
-    display: none;
 }
 
 .buttonToggleEvent {
@@ -492,4 +491,13 @@
 .paymentWrapper > p {
     color: #0095f6;
     margin-top: 15px;
+}
+
+/* Error Msg */
+
+.errorMsg {
+    color: red;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
 }

@@ -35,13 +35,16 @@ function LoginMail({ setLoginPage }) {
             
             axios.post(`${process.env.REACT_APP_API_KEY}/login`,values)
             .then((res)=>{
+                
                 dispatch({ type: "FETCH_SUCCESS", payload: res.data })
                 if(res.data.status) {
                     localStorage.setItem('token', res.data.token)
                     navigate('/profile', { replace: true })
                 }
             })
-            .catch(() => dispatch({ type: "FETCH_ERROR" }))
+            .catch((err) => {
+                dispatch({ type: "FETCH_ERROR", payload: err.response.data })
+            })
         }
     })
 

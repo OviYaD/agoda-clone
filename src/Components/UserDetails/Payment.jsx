@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BsPlusLg } from 'react-icons/bs'
 import PaymentModel from '../PaymentModel/PaymentModel'
 
-function Payment({ paymentInfo }) {
+function Payment({paymentInfo }) {
 
     const [openPaymentModel, setOpenPaymentModel] = useState(false)
 

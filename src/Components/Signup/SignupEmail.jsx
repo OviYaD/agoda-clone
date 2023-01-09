@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios';
 import Input from '../Input/Input'
 import { reducerFunction } from '../../Helper/Reducer'
 import EmailNotification from '../EmailNotification/EmailNotification'
@@ -8,6 +9,15 @@ import SubmitButton from '../SubmitButton/SubmitButton'
 
 
 function SignupEmail({ emailSignup }) {
+
+    const INITIAL_STATE = {
+        loading: false,
+        data: {},
+        error: false
+    }
+
+    const [state, dispatch] = useReducer(reducerFunction, INITIAL_STATE)
+
 
     const formik = useFormik({
         initialValues: {
@@ -37,34 +47,22 @@ function SignupEmail({ emailSignup }) {
         }),
         onSubmit: (value) => {
             delete value.confirmPassword;
+
             dispatch({ type: "FETCH_START" })
-            fetch(`${process.env.REACT_APP_API_KEY}/register`, {
-                method: "POST",
-                body: JSON.stringify(),
-                headers: { 'Content-Type': 'application/json' }
+            
+            axios.post(`${process.env.REACT_APP_API_KEY}/register`,value)
+            .then((res)=>{
+                dispatch({ type: "FETCH_SUCCESS", payload: res.data })
+                if (res.data.status)  {
+                    emailSignup(false);
+                }
             })
-                .then((res) => {
-                    return res.json(value)
-                })
-                .then((data) => {
-                    dispatch({ type: "FETCH_SUCCESS", payload: data })
-                    if (data.status) {
-                        emailSignup(false);
-                    }
-                })
-                .catch(() => {
-                    dispatch({ type: "FETCH_ERROR" })
-                })
+            .catch((err) => {
+                dispatch({ type: "FETCH_ERROR", payload: err.response.data })
+            })
         }
     })
 
-    const INITIAL_STATE = {
-        loading: false,
-        data: {},
-        error: false
-    }
-
-    const [state, dispatch] = useReducer(reducerFunction, INITIAL_STATE)
 
     return (
         <form onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e) }} noValidate >

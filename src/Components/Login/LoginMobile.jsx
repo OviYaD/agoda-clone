@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import axios from 'axios';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Input from '../Input/Input'
@@ -35,25 +36,19 @@ function LoginMobile({ setLoginPage }) {
             )
         }),
         onSubmit: (value) => {
+
             dispatch({ type: "FETCH_START" })
-            fetch(`${process.env.REACT_APP_API_KEY}/login`, {
-                method: "POST",
-                body: JSON.stringify(value),
-                headers: { 'Content-Type': 'application/json' }
+            axios.post(`${process.env.REACT_APP_API_KEY}/login`,value)
+            .then((res)=>{
+                dispatch({ type: "FETCH_SUCCESS", payload: res.data })
+                if(res.data.status) {
+                    localStorage.setItem('token', res.data.token)
+                    navigate('/profile', { replace: true })
+                }
             })
-                .then((res) => {
-                    return res.json()
-                })
-                .then((data) => {
-                    dispatch({ type: "FETCH_SUCCESS", payload: data })
-                    if (data.status) {
-                        localStorage.setItem('token', data.token)
-                        navigate('/profile', { replace: true })
-                    }
-                })
-                .catch(() => {
-                    dispatch({ type: "FETCH_ERROR" })
-                })
+            .catch((err) => {
+                dispatch({ type: "FETCH_ERROR", payload: err.response.data })
+            })
         }
     })
 

@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios';
 import Input from '../Input/Input'
 import { reducerFunction } from '../../Helper/Reducer'
 import SubmitButton from '../SubmitButton/SubmitButton'
@@ -32,25 +33,19 @@ function SignupMobile({ setLoginPage, emailSignup }) {
             )
         }),
         onSubmit: (value) => {
-            dispatch({ type: "FETCH_START" })
-            fetch(`${process.env.REACT_APP_API_KEY}/register`, {
-                method: "POST",
-                body: JSON.stringify(value),
-                headers: { 'Content-Type': 'application/json' }
-            })
-                .then((res) => {
-                    return res.json()
-                })
-                .then((data) => {
-                    dispatch({ type: "FETCH_SUCCESS", payload: data })
-                    if (data.status) {
-                        emailSignup(false);
-                    }
-                })
-                .catch(() => {
-                    dispatch({ type: "FETCH_ERROR" })
-                })
 
+            dispatch({ type: "FETCH_START" })
+            
+            axios.post(`${process.env.REACT_APP_API_KEY}/login`,value)
+            .then((res)=>{
+                dispatch({ type: "FETCH_SUCCESS", payload: res.data })
+                if(res.data.status) {
+                    emailSignup(false);
+                }
+            })
+            .catch((err) => {
+                dispatch({ type: "FETCH_ERROR", payload: err.response.data })
+            })
         }
     })
 

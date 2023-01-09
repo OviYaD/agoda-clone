@@ -14,8 +14,9 @@ export const reducerFunction = (state,action) => {
             }
         case "FETCH_ERROR":{
             return {
+                ...state,
                 loading : false,
-                data : {},
+                data : action.payload,
                 error : true
             }
         }
