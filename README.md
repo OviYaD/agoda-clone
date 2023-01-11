@@ -11,7 +11,7 @@ Online travel agency for hotels, vacation rentals, flights, and airport transfer
 | Axios  | 1.2.2  | Axios allows us to communicate with APIs easily in our React apps. |
 | Yup  | 0.32.11  | Yup is a JavaScript schema builder for value parsing and validation. |
 
-## Available Scripts
+## Run Application
 
 In the project directory, you can run:
 
