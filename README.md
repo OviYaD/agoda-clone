@@ -10,6 +10,7 @@ Online travel agency for hotels, vacation rentals, flights, and airport transfer
 | Formik | 2.2.9 | Formik is a small group of React components and hooks for building forms in React |
 | Axios  | 1.2.2  | Axios allows us to communicate with APIs easily in our React apps. |
 | Yup  | 0.32.11  | Yup is a JavaScript schema builder for value parsing and validation. |
+| React Slideshow Image  | 4.1.1  | React slideshow is react component that supports slide, fade and zoom effects. |
 
 ## Run Application
 

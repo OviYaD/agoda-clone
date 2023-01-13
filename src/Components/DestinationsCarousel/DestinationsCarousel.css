@@ -1,0 +1,14 @@
+.destinationsCarouselWrapper {
+    margin: 64px auto;
+    width: 100%;
+}
+
+.dcTitle {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    color: rgb(42, 42, 46);
+    padding-bottom: 8px;
+    display: block;
+    text-align: center;
+}
