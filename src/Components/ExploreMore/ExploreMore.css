@@ -1,0 +1,83 @@
+.exploreMoreWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    color: rgb(42, 42, 46);
+}
+
+.exploreMoreTitle {
+    margin-bottom: 24px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: flex;
+}
+
+.exploreMoreTitle > h3 {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    margin: 8px 0px;
+}
+
+.exploreMoreShowcase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: -16px;
+    width: calc(100% + 32px);
+}
+
+.exploreMoreShowcase > div {
+    padding: 16px;
+    display: block;
+    flex-basis: 25%;
+    flex-grow: 0;
+    max-width: 25%;
+}
+
+.exploreMoreDiv {
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.exploreMoreDiv > div {
+    padding: 0px;
+    position: relative;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(221, 223, 226);
+}
+
+.exploreMoreDiv > div > img {
+    border: 0;
+    vertical-align: middle;
+    overflow: clip;
+}
+
+.exploreMoreDetails {
+    margin: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+}
+
+.exploreMoreDivTitle {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    color: rgb(42, 42, 46);
+}
+
+.exploreMoreDivDetails {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgb(115, 115, 115);
+    margin-top: 4px;
+}
