@@ -1,0 +1,243 @@
+.homeRecommendWrapper {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: flex;
+    color: rgb(42, 42, 46);
+}
+
+.homeRecommendWrapper > div {
+    width: 1100px;  
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.homeRecommendWrapper > div > h3 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    margin: 8px 0px;
+}
+
+.homeRecommendWrapper > div > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.homeActiveTab {
+    flex: 1 1 0%;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    list-style-type: none;
+    padding: 8px;
+    width: auto;
+    border-bottom: 2px solid rgb(83, 146, 249);
+    margin-bottom: -2px;
+}
+
+.homeActiveTab > div {
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.homeActiveTab > div > span {
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgb(42, 42, 46);
+}
+
+.homeUnactiveTab {
+    flex: 1 1 0%;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    list-style-type: none;
+    padding: 8px;
+    width: auto;
+    border-bottom: 1px solid rgb(221, 223, 226);
+    margin-bottom: -1px;
+}
+
+.homeUnactiveTab > div {
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.homeUnactiveTab > div > span {
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgb(42, 42, 46);
+}
+
+.homeRecommendWrapper > div > div {
+    margin-top: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -6px;
+    width: calc(100% + 12px);
+}
+
+.itemstyledRecommendedWrapper {
+    padding: 6px;
+    display: block;
+    flex-basis: 25%;
+    flex-grow: 0;
+    max-width: 25%;
+}
+
+.itemstyledRecommended {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.itemstyledRecommended > div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -2px;
+    width: calc(100% + 4px);
+}
+
+.itemstyledDiv {
+    padding: 2px;
+    box-sizing: border-box;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    /* display: block; */
+    flex-basis: 100%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 100%;
+}
+
+.itemstyledImage {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+}
+
+.itemstyledRating {
+    position: absolute;
+    right: 8px;
+}
+
+.itemstyledRatingWrapper {
+    margin-right: 8px;
+    margin-left: 0px;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    order: 0;
+    display: flex;
+}
+
+.itemstyledRatingWrapper > svg{
+    fill: #5392f9;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 12px;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.itemstyledRatingWrapper > div {
+    margin-right: 4px;
+    margin-left: 0px;
+    width: inherit;
+    height: inherit;
+    position: relative;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: inherit;
+    color: rgb(255, 255, 255);
+}
+
+.itemstyledRatingWrapper > div > span {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+.itemstyledTitle {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    color: rgb(42, 42, 46);
+}
+
+.itemstyledDetails {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -2px;
+    width: auto;
+}
+
+.locationLogoWrapper {
+    margin: 0 1px;
+    padding: 2px;
+}
+
+.locationLogo {
+    fill: #5392f9;
+}
+
+.stateNameItem {
+    margin: 0 1px;
+    padding: 2px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #5392f9;
+}
+
+.priceDetailsItems {
+    padding: 2px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    color: rgb(225, 45, 45);
+}
+
+#homeRecommendButton {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+#homeRecommendButton > button {
+    position: relative;
+    border: none;
+    user-select: none;
+    padding: 12px;
+    border-radius: 4px;
+    background-color: rgb(83, 146, 249);
+    color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 1px;
+    transition: all 0.15s ease-in-out 0s;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+}
