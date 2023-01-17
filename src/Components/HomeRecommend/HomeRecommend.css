@@ -204,6 +204,7 @@
 }
 
 .stateNameItem {
+    white-space: nowrap;
     margin: 0 1px;
     padding: 2px;
     font-size: 12px;
