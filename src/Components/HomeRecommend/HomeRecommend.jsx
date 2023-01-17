@@ -60,7 +60,7 @@ function HomeRecommend() {
         <h3>Featured homes recommended for you</h3>
         <ul>
           {
-            homeRecommend.map((val, index) @Surya S=> {
+            homeRecommend.map((val, index) => {
               return (
                 <li key={index} className={tab === index ? 'homeActiveTab' : 'homeUnactiveTab'} onClick={() => setTab(index)}>
                   <div><span>{val}</span></div>
