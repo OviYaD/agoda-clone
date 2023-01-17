@@ -9,11 +9,11 @@ function HomeRecommend() {
 
   const homeRecommend = ["New Delhi and NCR","Goa","Mumbai","Bangalore","Hyderabad"]
 
-  // const mockData = [
-  //   {
-
-  //   }
-  // ]
+  const mockData = [
+    [
+      {img:"", title:"", rating:"", city:"", area : "", currency : "" , price:""}
+    ]
+  ]
 
   return (
     <main className='homeRecommendWrapper'>
